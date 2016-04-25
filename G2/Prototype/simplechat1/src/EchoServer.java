@@ -1,7 +1,6 @@
 // This file contains material supporting section 3.7 of the textbook:
 // "Object Oriented Software Engineering" and is issued under the open-source
 // license found at www.lloseng.com 
-
 import java.io.*;
 import ocsf.server.*;
 
@@ -47,6 +46,7 @@ public class EchoServer extends AbstractServer
    */
   public void handleMessageFromClient
     (Object msg, ConnectionToClient client)
+    
   {
 	  String[] str_arr; 
 	  str_arr =  ((String) msg).split(":");
@@ -56,6 +56,7 @@ public class EchoServer extends AbstractServer
 		  String Dataset = str_arr[1];//Selelct * From DataSet
 		  //pull return string
 		  this.sendToAllClients("pulling...");
+		  jdbc.mysqlConnection.pull(Dataset, con)
 	  }
 	  else if(Op_Code.equals("PullWhere"))//Selelct * From DataSet Where
 	  {
