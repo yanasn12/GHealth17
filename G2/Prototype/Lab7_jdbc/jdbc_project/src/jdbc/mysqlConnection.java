@@ -14,13 +14,6 @@ public class mysqlConnection {
 
 	public static void main(String[] args) 
 	{
-		ArrayList<String> data= new ArrayList<String>();
-		data.add("0");
-		data.add("6");
-		data.add("6");
-		data.add("6");
-		data.add("6");
-		data.add("6");
 		try 
 		{
             Class.forName("com.mysql.jdbc.Driver").newInstance();
@@ -35,10 +28,6 @@ public class mysqlConnection {
       //      System.out.println(data.toString());
      //       createTableCourses(conn);
            // push("sql1.human",data,conn);
-			if(!(checkme("sql1.human",data,conn)))
-			{
-				System.out.println("error!");
-			}
      	} catch (SQLException ex) 
      	    {/* handle any errors*/
             System.out.println("SQLException: " + ex.getMessage());
@@ -47,13 +36,14 @@ public class mysqlConnection {
             }
    	}
 	
-	public static ArrayList<String> pull (String DB,Connection con)
+	public static ArrayList<String> pull (String DB)
 	{
 		ArrayList<String> data= new ArrayList<String>();
 		Statement stmt;
 		String line="";
 		try 
 		{
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/sql1","root","xhxnt");
 			stmt = con.createStatement();
 		//	PreparedStatement newPull = con.prepareStatement("SELECT *" + " FROM ?");
 			
@@ -72,7 +62,7 @@ public class mysqlConnection {
 			rs.close();
 			//stmt.executeUpdate("UPDATE course SET semestr=\"W08\" WHERE num=61309");
 		} catch (SQLException e) {e.printStackTrace();}
-		finally{ return data;}
+		finally { return data; }
 	}
 public static boolean  checkme (String DB,ArrayList<String> data,Connection con)
 {
@@ -89,15 +79,13 @@ public static boolean  checkme (String DB,ArrayList<String> data,Connection con)
 	 		
 }
 
-
-
 	
-	public static void push (String DB,ArrayList<String> data,Connection con){
-		Statement stmt;
+	public static void push (String DB,ArrayList<String> data)
+	{
 		String insertTableSQL = "INSERT INTO "+DB + "(UserID,Fname, LastName, Phone, address, Email) VALUES"
 				+ "(?,?,?,?,?,?)";
 		try {	
-			
+			Connection con = DriverManager.getConnection("jdbc:mysql://localhost/sql1","root","xhxnt");
 			PreparedStatement update = con.prepareStatement(insertTableSQL);
 
 			update.setString(2, data.get(1));

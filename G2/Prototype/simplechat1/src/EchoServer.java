@@ -2,7 +2,12 @@
 // "Object Oriented Software Engineering" and is issued under the open-source
 // license found at www.lloseng.com 
 import java.io.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.util.ArrayList;
+
 import ocsf.server.*;
+
 
 /**
  * This class overrides some of the methods in the abstract 
@@ -51,16 +56,31 @@ public class EchoServer extends AbstractServer
 	  String[] str_arr; 
 	  str_arr =  ((String) msg).split(":");
 	  String Op_Code = str_arr[0];
+	  
+	  //Pull
 	  if (Op_Code.equals("Pull"))
 	  {
-		  String Dataset = str_arr[1];//Selelct * From DataSet
+		  String Dataset="";//Selelct * From DataSet
+		  if(str_arr.length==7)
+		  for(int i=1; i<=str_arr.length; i++)
+		  {
+			Dataset=Dataset + " "+ str_arr[i];  
+		  }
+
 		  //pull return string
 		  this.sendToAllClients("pulling...");
-		  jdbc.mysqlConnection.pull(Dataset, con)
+	jdbc.mysqlConnection.pull(Dataset);
 	  }
-	  else if(Op_Code.equals("PullWhere"))//Selelct * From DataSet Where
+	 else if(Op_Code.equals("PullWhere"))//Selelct * From DataSet Where
 	  {
-		  
+		  ArrayList<String> Dataset=new ArrayList<String>();//Selelct * From DataSet
+		  if(str_arr.length==8)
+			  for(int i=2; i<=str_arr.length; i++)
+			  {
+				  Dataset.add(str_arr[i]); 
+			  }
+		  	this.sendToAllClients("pushing...");
+		  	jdbc.mysqlConnection.push(str_arr[2], Dataset);		  
 	  }
 	  System.out.println("Message received: " + msg + " from " + client);
 	  this.sendToAllClients(msg);
