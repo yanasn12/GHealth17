@@ -69,7 +69,7 @@ public class EchoServer extends AbstractServer
 
 		  //pull return string
 		  this.sendToAllClients("pulling...");
-	jdbc.mysqlConnection.pull(Dataset);
+	System.out.println(jdbc.mysqlConnection.pull(Dataset));
 	  }
 	 else if(Op_Code.equals("PullWhere"))//Selelct * From DataSet Where
 	  {
