@@ -1,0 +1,364 @@
+<html><head><title>Suite AddCarFuelOrder.fit run at: Sun Jan 24 12:43:05 IST 2016</title>
+	<link rel="stylesheet" type="text/css" href="css/fitnesse.css" media="screen"/>
+ 	<link rel="stylesheet" type="text/css" href="css/fitnesse.css" media="print"/>
+<script language="JavaScript" type="text/javascript">
+var collapsableOpenCss = "collapsable"
+var collapsableClosedCss = "hidden"
+var collapsableOpenImg = "images/collapsableOpen.gif"
+var collapsableClosedImg = "images/collapsableClosed.gif"
+function toggleCollapsable(id){
+var div = document.getElementById(id);
+var img = document.getElementById("img" + id);
+if(div.className.indexOf(collapsableClosedCss) != -1) {
+div.className = collapsableOpenCss;
+img.src = collapsableOpenImg;
+} else {
+div.className = collapsableClosedCss;
+img.src = collapsableClosedImg;
+} }
+</script>
+
+</head>
+<body>
+<div> Suite is: C:/Users/USER/Desktop/G1_Assignment3-Project/Acceptance Test/FitTests/AddCarFuelOrder.fit</div><div class="test_output_name">Name: AddCarFuelOrder.fit</div><div> Suite executed at: Sun Jan 24 12:43:05 IST 2016 Elapsed time: 164 millseconds  </div><table><tr><td></td><td><a href="#-9fda785:152733ae5e9:-8000">AddCarFuelOrder.fit</a></td><td class="error">0 right, 0 wrong, 0 ignored, 17 exceptions</td></tr></table><div class="test_output_name"><a name="-9fda785:152733ae5e9:-8000"/><p>Test file: AddCarFuelOrder.fit</p></div><html>
+	<head>
+		<title></title>
+		<meta content="MSHTML 11.00.10586.35" name="GENERATOR" />
+	</head>
+	<body>
+		<p>
+			<span style="font-size: 28px;"><u><strong>AddCar Fuel Order&nbsp;Tests</strong></u></span></p>
+		<p>
+			<span style="font-size: 20px;"><u><strong>Use Case Description</strong>:</u></span>&nbsp; This use case creates a new car fuel order.</p>
+		<p>
+			<strong>Primary actor: Car </strong>Customer.</p>
+		<p>
+			<strong>Pre-condition:</strong></p>
+		<ul>
+			<li>
+				Login.</li>
+			<li>
+				Uou must get this option by clicking on &quot;Station Control&quot; and Then Create Car Fuel Order&quot;.</li>
+		</ul>
+		<p>
+			Test 1: Empty Fields:&nbsp; Acceptance test for checking&nbsp;new Car Fuel Order&nbsp;with empty fields. It&nbsp;is an indication of a faulty execution of the test. Popup should be appeared with the corresponding message.</p>
+		<p>
+			Test 2: All fields are filled correctly: Acceptance test for checking Car Fuel Order with all fields filled correctly. It is an indication of an accurate execution of the test</p>
+		<p>
+			Test 3:&nbsp;CarID&nbsp; is an incorrect : Acceptance test for checking&nbsp;CarID with a wrong&nbsp;Input such as &quot;xyz&quot;.It&nbsp;is an indication of a faulty execution of the test.<br />
+			Popup should be appeared with the corresponding error message.</p>
+		<p>
+			Test 4 :</p>
+		<p>
+			&nbsp;</p>
+		<p>
+			&nbsp;</p>
+		<p>
+			&nbsp;</p>
+		<table border="1" cellpadding="0" cellspacing="0" style="width: 765px;" width="765">
+			<tbody>
+				<tr>
+					<td colspan="3">
+						<p>
+							fit.ActionFixture</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p>
+							start</p>
+					</td>
+					<td>
+						<p>
+							Fixtures.AddCarFuelOrder</p>
+					</td>
+					<td>
+						<p>
+							&nbsp;</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p>
+							press</p>
+					</td>
+					<td>
+						<p>
+							startCarFuelOrder</p>
+					</td>
+					<td class="pass">
+						<p>
+							&nbsp;</p>
+					</td>
+				</tr>
+				<tr>
+					<td class="error">
+						<p>
+							enter</p>
+					<hr/> <span class="fit_label">Could not find method: carFuelOrderCarID.</span></td>
+					<td>
+						<p>
+							carFuelOrderCarID</p>
+					</td>
+					<td>
+						<p>
+							&nbsp;</p>
+					</td>
+				</tr>
+				<tr>
+					<td class="error">
+						<p>
+							enter</p>
+					<hr/> <span class="fit_label">Could not find method: carFuelOrderQuantity.</span></td>
+					<td>
+						<p>
+							carFuelOrderQuantity</p>
+					</td>
+					<td>
+						<p>
+							&nbsp;</p>
+					</td>
+				</tr>
+				<tr>
+					<td class="error">
+						<p>
+							enter</p>
+					<hr/> <span class="fit_label">Could not find method: CarFuelOrderDriverName.</span></td>
+					<td>
+						<p>
+							Car Fuel Order Driver Name</p>
+					</td>
+					<td>
+						<p>
+							&nbsp;</p>
+					</td>
+				</tr>
+				<tr>
+					<td class="error">
+						<p>
+							check</p>
+					<hr/> <span class="fit_label">Could not find method: AddCarFuelOrder.</span></td>
+					<td>
+						<p>
+							Add Car Fuel Order</p>
+					</td>
+					<td>
+						<p>
+							false</p>
+					</td>
+				</tr>
+				<tr>
+					<td class="error">
+						<p>
+							press</p>
+					<hr/> <span class="fit_label">Could not find method: StartCarFuelOrder.</span></td>
+					<td>
+						<p>
+							Start Car Fuel Order</p>
+					</td>
+					<td>
+						<p>
+							&nbsp;</p>
+					</td>
+				</tr>
+				<tr>
+					<td class="error">
+						<p>
+							enter</p>
+					<hr/> <span class="fit_label">Could not find method: CarFuelCarId.</span></td>
+					<td>
+						<p>
+							Car Fuel CarId</p>
+					</td>
+					<td>
+						<p>
+							3</p>
+					</td>
+				</tr>
+				<tr>
+					<td class="error">
+						<p>
+							enter</p>
+					<hr/> <span class="fit_label">Could not find method: CarFuelQuantity.</span></td>
+					<td>
+						<p>
+							Car Fuel Quantity</p>
+					</td>
+					<td>
+						<p>
+							30</p>
+					</td>
+				</tr>
+				<tr>
+					<td class="error">
+						<p>
+							enter</p>
+					<hr/> <span class="fit_label">Could not find method: CarFuelDriverName.</span></td>
+					<td>
+						<p>
+							Car Fuel Driver Name</p>
+					</td>
+					<td>
+						<p>
+							Elad</p>
+					</td>
+				</tr>
+				<tr>
+					<td class="error">
+						<p>
+							check</p>
+					<hr/> <span class="fit_label">Could not find method: AddCarFuelOrder.</span></td>
+					<td>
+						<p>
+							Add Car Fuel Order</p>
+					</td>
+					<td class="pass">
+						<p>
+							true</p>
+					</td>
+				</tr>
+				<tr>
+					<td class="error">
+						<p>
+							press</p>
+					<hr/> <span class="fit_label">Could not find method: StartCarFuelOrder.</span></td>
+					<td>
+						<p>
+							Start Car Fuel Order</p>
+					</td>
+					<td>
+						<p>
+							&nbsp;</p>
+					</td>
+				</tr>
+				<tr>
+					<td class="error">
+						<p>
+							enter</p>
+					<hr/> <span class="fit_label">Could not parse: Stam expected type: int.</span></td>
+					<td>
+						<p>
+							Car Fuel Order CarID</p>
+					</td>
+					<td>
+						<p>
+							Stam</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p>
+							enter</p>
+					</td>
+					<td>
+						<p>
+							Car Fuel Order Quantity</p>
+					</td>
+					<td>
+						<p>
+							25</p>
+					</td>
+				</tr>
+				<tr>
+					<td class="error">
+						<p>
+							enter</p>
+					<hr/> <span class="fit_label">Could not find method: CarFuelOrderDriverName.</span></td>
+					<td>
+						<p>
+							Car Fuel Order Driver Name</p>
+					</td>
+					<td>
+						<p>
+							Elad</p>
+					</td>
+				</tr>
+				<tr>
+					<td class="error">
+						<p>
+							check</p>
+					<hr/> <span class="fit_label">Could not find method: AddCarFuelOrder.</span></td>
+					<td>
+						<p>
+							Add Car Fuel Order</p>
+					</td>
+					<td>
+						<p>
+							False</p>
+					</td>
+				</tr>
+				<tr>
+					<td class="error">
+						<p>
+							press</p>
+					<hr/> <span class="fit_label">Could not find method: StartCarFuelOrder.</span></td>
+					<td>
+						<p>
+							Start Car Fuel Order</p>
+					</td>
+					<td>
+						<p>
+							&nbsp;</p>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<p>
+							enter</p>
+					</td>
+					<td>
+						<p>
+							Car Fuel Order CarID</p>
+					</td>
+					<td>
+						<p>
+							2</p>
+					</td>
+				</tr>
+				<tr>
+					<td class="error">
+						<p>
+							enter</p>
+					<hr/> <span class="fit_label">Could not parse: 34E expected type: double.</span></td>
+					<td>
+						<p>
+							Car Fuel Order Quantity</p>
+					</td>
+					<td>
+						<p>
+							34E</p>
+					</td>
+				</tr>
+				<tr>
+					<td class="error">
+						<p>
+							enter</p>
+					<hr/> <span class="fit_label">Could not find method: CarFuelOrderDriverName.</span></td>
+					<td>
+						<p>
+							Car Fuel Order Driver Name</p>
+					</td>
+					<td class="pass">
+						<p>
+							Elad</p>
+					</td>
+				</tr>
+				<tr>
+					<td class="error">
+						<p>
+							check</p>
+					<hr/> <span class="fit_label">Could not find method: AddCarFuelOrder.</span></td>
+					<td>
+						<p>
+							Add Car Fuel Order</p>
+					</td>
+					<td>
+						<p>
+							false</p>
+					</td>
+				</tr>
+			</tbody>
+		</table></body>
+</html>
+
+</body></html>
