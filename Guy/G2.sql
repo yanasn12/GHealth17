@@ -1,1 +1,2 @@
-SELECT * FROM sql1.physician;
+
+select * from sql1.physician WHERE PhysicianName='Guy';
