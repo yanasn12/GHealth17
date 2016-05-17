@@ -1,0 +1,13 @@
+general:
+	Action:DB:Field1,_____,Field2,_____,......,.....,.....
+
+pull:
+String->	pull:physician:
+push:
+String->	push:physician:PhysicianName,yossi,Specialization,butt
+update:
+String->	update:physician:PhysicianName,yossi,Specialization,ass
+delete:
+String->	delete:physician:PhysicianName,yossi
+pushbykey:
+String->	pullbykey:physician:PhysicianName,Guy
