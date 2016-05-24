@@ -30,7 +30,9 @@ public class Main extends JFrame {
 	private JLabel lblPassword;
 	private JTextField txtPassword;
 	private JButton btnNewButton;
-	public static String inputLogin="";
+	private String inputLogin="";
+	private int wrongConter=0;
+	
 	/**
 	 * Launch the application.
 	 */
@@ -74,9 +76,9 @@ public class Main extends JFrame {
 		textField = new JTextField();
 		textField.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				inputLogin=inputLogin +"worker_num," + textField.getText().toString();
-				inputLogin=inputLogin + ",";
-				System.out.println(inputLogin);
+				//inputLogin=inputLogin +"worker_num," + textField.getText().toString();
+				//inputLogin=inputLogin + ",";
+				//System.out.println(inputLogin);
 			}
 		});
 		textField.setColumns(10);
@@ -90,7 +92,7 @@ public class Main extends JFrame {
 		txtPassword = new JTextField();
 		txtPassword.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				inputLogin=inputLogin+"password" + txtPassword.getText();
+		//		inputLogin=inputLogin+"password" + txtPassword.getText();
 				lblPassword = new JLabel(inputLogin);
 				lblPassword.setFont(new Font("Arial Unicode MS", Font.PLAIN, 18));
 			}
@@ -100,6 +102,7 @@ public class Main extends JFrame {
 		btnNewButton = new JButton("");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				
 				inputLogin="pullbykey:medical_worker:"+ inputLogin;
 				inputLogin=inputLogin +"worker_num," + textField.getText().toString();
 				inputLogin=inputLogin + ",";
@@ -116,13 +119,40 @@ public class Main extends JFrame {
 				}
 				else
 				{
-					dataDB=data.get(0).split(",");
+				dataDB=data.get(0).split(",");
+				if(!dataDB[4].equals("0"))
+				{
+					if(dataDB[4].equals("1"))
+						JOptionPane.showMessageDialog(null,"The user is already in Login mode,\n please connect to system administrator ", "Login Error",JOptionPane.ERROR_MESSAGE);
+					else
+						if(dataDB[4].equals("2"))
+					JOptionPane.showMessageDialog(null,"The user is locked out of the system due to suspicion of hacking attempt,\n please connect to system administrator ", "Login Error",JOptionPane.ERROR_MESSAGE);
+
+				}
+				else
+				{
+					
 					if(!dataDB[2].equals(txtPassword.getText().toString()))
 						{
-							JOptionPane.showMessageDialog(null,"you have enter a wrong password.", "Login Error",JOptionPane.ERROR_MESSAGE);
+							System.out.println(wrongConter++);
+							if(wrongConter<3)
+								JOptionPane.showMessageDialog(null,"you have enter a wrong password.", "Login Error",JOptionPane.ERROR_MESSAGE);
+							else
+								{
+									inputLogin="update:medical_worker:"+"worker_num,"+ dataDB[1].toString()+",is_connected,2";
+									jdbc.mysqlConnection.ActionMode(inputLogin.toString());
+									JOptionPane.showMessageDialog(null,"you have try too many time, please connect your Admin.", "Login Error",JOptionPane.ERROR_MESSAGE);
+								}
+							
+						}
+					else if(dataDB[2].equals(txtPassword.getText().toString()))
+						{
+						inputLogin="update:medical_worker:"+"worker_num,"+ dataDB[0]+",is_connected,1";
+						jdbc.mysqlConnection.ActionMode(inputLogin.toString());
 						}
 				}
-				
+				inputLogin="";
+				}
 			}
 		});
 		btnNewButton.setIcon(new ImageIcon(Main.class.getResource("/javagui/resources/login3.png")));
