@@ -1,4 +1,5 @@
 package javagui.views;
+//-->guy-code
 //->נגמר עד הוספת עוד  חלונות GUI
 import java.awt.BorderLayout;
 import javax.swing.JButton;
@@ -6,6 +7,7 @@ import javax.swing.JOptionPane;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+//-->guy-code
 import javax.swing.border.EmptyBorder;
 import javax.swing.UIManager;
 import java.awt.Color;
@@ -30,9 +32,10 @@ public class Main extends JFrame {
 	private JLabel lblPassword;
 	private JTextField txtPassword;
 	private JButton btnNewButton;
+	//-->guy-code
 	private String inputLogin="";
 	private int wrongConter=0;
-	
+	//-->guy-code
 	/**
 	 * Launch the application.
 	 */
@@ -95,7 +98,7 @@ public class Main extends JFrame {
 		btnNewButton = new JButton("");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				
+				//-->guy-code
 				inputLogin="pullbykey:medical_worker:"+ inputLogin;
 				inputLogin=inputLogin +"worker_num," + textField.getText().toString();
 				inputLogin=inputLogin + ",";
@@ -149,6 +152,7 @@ public class Main extends JFrame {
 				}
 			}
 		});
+		//-->guy-code
 		btnNewButton.setIcon(new ImageIcon(Main.class.getResource("/javagui/resources/login3.png")));
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(

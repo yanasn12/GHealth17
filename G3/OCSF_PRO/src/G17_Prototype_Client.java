@@ -7,7 +7,12 @@ import client.*;
 import common.*;
 
 import java.util.Scanner;
-
+import java.awt.BorderLayout;
+import javax.swing.JButton;
+import javax.swing.JOptionPane;
+import java.awt.EventQueue;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 /**
  * This class constructs the UI for a chat client.  It implements the
  * chat interface in order to activate the display() method.
@@ -109,7 +114,7 @@ public class G17_Prototype_Client implements ChatIF
     String host = "";
     String hostip;
     int port = 0;  //The port number
-    Scanner input = new Scanner("system.in");
+    String input = (String)JOptionPane.showInputDialog(null,"enter server IP",null);
     //System.out.println("Enter server ip");
     //hostip = input.next();
     try
@@ -118,7 +123,7 @@ public class G17_Prototype_Client implements ChatIF
     }
     catch(ArrayIndexOutOfBoundsException e)
     {
-      host = "10.10.1.208";//hostip;
+      host =input;//hostip;
     }
     G17_Prototype_Client chat= new G17_Prototype_Client(host, DEFAULT_PORT);
     chat.accept();  //Wait for console data
