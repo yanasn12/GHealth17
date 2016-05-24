@@ -1,5 +1,5 @@
 package javagui.views;
-
+//->נגמר עד הוספת עוד  חלונות GUI
 import java.awt.BorderLayout;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
@@ -58,7 +58,6 @@ public class Main extends JFrame {
 	 * Create the frame.
 	 */
 	public Main() {
-		ArrayList <String> fillIn=new ArrayList<String>();
 		setIconImage(Toolkit.getDefaultToolkit().getImage(Main.class.getResource("/javagui/resources/img16x16/loginicon.png")));
 		setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 14));
 		setBackground(Color.WHITE);
@@ -76,9 +75,6 @@ public class Main extends JFrame {
 		textField = new JTextField();
 		textField.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				//inputLogin=inputLogin +"worker_num," + textField.getText().toString();
-				//inputLogin=inputLogin + ",";
-				//System.out.println(inputLogin);
 			}
 		});
 		textField.setColumns(10);
@@ -92,9 +88,6 @@ public class Main extends JFrame {
 		txtPassword = new JTextField();
 		txtPassword.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-		//		inputLogin=inputLogin+"password" + txtPassword.getText();
-				lblPassword = new JLabel(inputLogin);
-				lblPassword.setFont(new Font("Arial Unicode MS", Font.PLAIN, 18));
 			}
 		});
 		txtPassword.setColumns(10);
@@ -149,6 +142,7 @@ public class Main extends JFrame {
 							inputLogin="update:medical_worker:"+"worker_num,"+ dataDB[1]+",is_connected,1";
 							System.out.println(inputLogin);
 							jdbc.mysqlConnection.ActionMode(inputLogin.toString());
+							//->we know all we need, add the conect to other screen
 							}
 					}
 				inputLogin="";

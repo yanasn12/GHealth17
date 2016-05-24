@@ -32,6 +32,7 @@ import javax.swing.Box;
 import javax.swing.JTextField;
 import javax.swing.JList;
 import javax.swing.JTextPane;
+import javax.swing.UIManager;
 import javax.swing.border.TitledBorder;
 import javax.swing.JComboBox;
 import javax.swing.JTextArea;
@@ -52,6 +53,7 @@ public class hello extends JInternalFrame {
 	/**
 	 * Create the frame.
 	 */
+
 	public hello() {
 		setFrameIcon(new ImageIcon(hello.class.getResource("/javagui/resources/img16x16/laboratory-icon.png")));
 		setTitle("Hello Lab worker");
