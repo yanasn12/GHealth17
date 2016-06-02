@@ -224,7 +224,7 @@ public class mysqlConnection {
 	 		while(rs.next())
 	 		  { 
 		 			for(int i=1; i <= columnsNumber; i++)
-		 				line=line+ " " + rs.getString(i);
+		 				line=line+ "," + rs.getString(i);
 				data.add(line);
 				line="";
 	 		  } 
@@ -373,7 +373,7 @@ private static ArrayList<String> pullByKey(String DB, String SearchKey)
 	 		} 
 			rs.close();
 			if(data.isEmpty())
-				return data;
+				return null;
 			else
 				return data;
 		} catch (SQLException e){
