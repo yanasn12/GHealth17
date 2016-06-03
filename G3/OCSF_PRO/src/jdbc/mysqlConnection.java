@@ -8,8 +8,21 @@ import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class mysqlConnection {
+	
+	
+	public static void main(String[] args) {
+		Scanner input =new Scanner(System.in);
+		String str = input.nextLine();
+		ArrayList<String> data = new ArrayList<String>();
+		data=ActionMode(str);
+		for(int i=0; i<data.size();i++)
+		{
+			System.out.println(data.get(i));
+		}
+	}
 /**String to ArrayList
  * resevie from gui - Action:DB:filed1,_____,filed2,______,.... ,....,.....*/
  public static ArrayList<String> ActionMode (String query)
@@ -79,9 +92,9 @@ public class mysqlConnection {
 			  	{
 			  		keyValues=inputData[0]+"=?;";
 			  		toFilled.add(inputData[1]);
-			  		for(int i=2;i<inputData.length;i=i+2)
+			  		for(int i=2;i<(inputData.length-1);i=i+2)
 			  		{
-			  			if(inputData[i+1]!=null)
+			  			if(!inputData[i+1].equals(""))
 			  			{
 			  				fixField=fixField+inputData[i]+"=? ";
 			  				toFilled.add(inputData[i+1]);
@@ -118,15 +131,80 @@ public class mysqlConnection {
 
 			  break;
 			  }
+		  case ("PULLBYDEMAND"):
+		  {
+			  String[] inputData;
+			  inputData = str_arr[2].split(",");
+			  String[] inputTables;
+			  inputTables = str_arr[1].split(",");
+			  ArrayList<String> conditions = new ArrayList<String>();
+			  where="ghealth."+inputTables[0];
+			  for(int i=1;i<inputTables.length;i++)
+			  {
+				  where=where+" , ";
+				  where=where+"ghealth."+inputTables[i];
+			  }
+			  for(int i=0;i<inputData.length;i++)
+			  {
+				  conditions.add(inputData[i]);
+			  }
+			  returnData=pullByDemand(where, conditions);
+			  break;
+		  }
 		  default: returnData.add("Error"); break;
 	  }
 	  return returnData;
  }
+/**
+ * format only for pullByDemand:
+ * pullByDemand:___DB1, DB2, DB3,:FROM_DBn,FILLD,FROM_DB(n+1),FILLD ,....
+ * 									   DB1.FILLD1=       DB2.FILLD7, .....   
+ * */
 
-/**Explanation: draw method pulling the table with all fields
+ private static ArrayList<String> pullByDemand (String DB, ArrayList<String> conditions)
+ {
+	 ArrayList<String> result = new ArrayList<String>();
+		Statement stmt; // Enable to create a statment
+		String line=""; // a temperary place where we keep every line of info
+		String quary ="SELECT * FROM "+ DB+" WHERE ";
+
+		try 
+			{
+	            Class.forName("com.mysql.jdbc.Driver").newInstance();
+	        } catch (Exception ex) {/* handle the error*/}
+		try 
+			{
+			for(int i=0; i<conditions.size();i+=4)
+			{
+				quary=quary+" "+conditions.get(i)+"."+conditions.get(i+1)+"="+conditions.get(i+2)+"."+conditions.get(i+3);
+				if((i+4)<conditions.size())
+					quary=quary+" AND";
+				else
+					quary=quary+";";
+			}
+			System.out.println(quary);
+         Connection con = DriverManager.getConnection("jdbc:mysql://localhost/ghealth","root","xhxnt");
+			stmt = con.createStatement();
+			ResultSet rs = stmt.executeQuery(quary);
+			ResultSetMetaData rsmd = rs.getMetaData();
+			int columnsNumber = rsmd.getColumnCount();
+	 		while(rs.next())
+	 		  { 
+		 			for(int i=1; i <= columnsNumber; i++)
+		 				line=line+ " " + rs.getString(i);
+				result.add(line);
+				line="";
+	 		  } 
+			rs.close();
+			return result;
+			} catch (SQLException e) {e.printStackTrace(); return null;}
+	}
+
+ /**Explanation: draw method pulling the table with all fields
 //InPut: Receives the name of the table we want to pull from
 //OutOut: Get a linked list with all the details of the table.	Each entry contains the key line in addition to all the information that it */
-private static ArrayList<String> pull (String DB)
+
+ private static ArrayList<String> pull (String DB)
 	{
 		ArrayList<String> data= new ArrayList<String>(); // a Temporary location where we keep the table with all the details
 		Statement stmt; // Enable to create a statment
@@ -146,7 +224,7 @@ private static ArrayList<String> pull (String DB)
 	 		while(rs.next())
 	 		  { 
 		 			for(int i=1; i <= columnsNumber; i++)
-		 				line=line+ " " + rs.getString(i);
+		 				line=line+ "," + rs.getString(i);
 				data.add(line);
 				line="";
 	 		  } 
@@ -295,7 +373,7 @@ private static ArrayList<String> pullByKey(String DB, String SearchKey)
 	 		} 
 			rs.close();
 			if(data.isEmpty())
-				return data;
+				return null;
 			else
 				return data;
 		} catch (SQLException e){
