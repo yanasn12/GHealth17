@@ -2,29 +2,26 @@ package Gui_server;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
-import java.awt.FlowLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import jdbc.mysqlConnection;
+
 
 import javax.swing.BoxLayout;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
+
 import java.awt.event.ActionEvent;
-import javax.swing.JList;
+
 import javax.swing.JInternalFrame;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
-import javax.swing.JTextPane;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
+
 
 public class ServerGui extends JFrame {
 
@@ -39,13 +36,10 @@ public class ServerGui extends JFrame {
 	private JButton btnPullbykey;
 	private JButton btnPush;
 	private JButton btnDelete;
-	private JButton btnCheckme;
-	private JButton btnPullbydemand;
 	private JButton SetTable;
 	private JButton btnExperts;
 	private JButton btnLabs;
 	private JButton btnMedicalworker;
-	private JButton btnOk;
 	private String commend="pull";
 	private String tables="labs";
 	public static String textline="";
@@ -105,8 +99,8 @@ public class ServerGui extends JFrame {
 		panel_1.setLayout(null);
 
 		txtTextfiled = new JTextField();
-		txtTextfiled.setBounds(0, 0, 557, 94);
-		txtTextfiled.setText("Gudie: to begin please choose a funcsion and then a table (one or more)");
+		txtTextfiled.setBounds(0, 0, 587, 98);
+		txtTextfiled.setText("Gudie: to begin please choose a funcsion, then a table, set and ok");
 		panel_1.add(txtTextfiled);
 		
 		txtTextfiled.setColumns(10);
@@ -289,10 +283,10 @@ public class ServerGui extends JFrame {
 		gbc_btnExpertise.gridy = 7;
 		internalFrame_1.getContentPane().add(btnExpertise, gbc_btnExpertise);
 		
-		btnExpertsinsurancebyexpertise = new JButton("expertsinsurance_by_expertise");
+		btnExpertsinsurancebyexpertise = new JButton("insurance_by_expertise");
 		btnExpertsinsurancebyexpertise.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				tables="expertsinsurance_by_expertise";
+				tables="insurance_by_expertise";
 			}
 		});
 		
@@ -506,31 +500,6 @@ public class ServerGui extends JFrame {
 		gbc_btnDelete.gridy = 4;
 		internalFrame.getContentPane().add(btnDelete, gbc_btnDelete);
 		
-		btnCheckme = new JButton("checkme");
-		btnCheckme.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				commend="checkme";
-			}
-		});
-		GridBagConstraints gbc_btnCheckme = new GridBagConstraints();
-		gbc_btnCheckme.fill = GridBagConstraints.HORIZONTAL;
-		gbc_btnCheckme.insets = new Insets(0, 0, 5, 0);
-		gbc_btnCheckme.gridx = 0;
-		gbc_btnCheckme.gridy = 5;
-		internalFrame.getContentPane().add(btnCheckme, gbc_btnCheckme);
-		
-		btnPullbydemand = new JButton("pullByDemand");
-		btnPullbydemand.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				commend="pullByDemand";
-			}
-		});
-		GridBagConstraints gbc_btnPullbydemand = new GridBagConstraints();
-		gbc_btnPullbydemand.insets = new Insets(0, 0, 5, 0);
-		gbc_btnPullbydemand.gridx = 0;
-		gbc_btnPullbydemand.gridy = 6;
-		internalFrame.getContentPane().add(btnPullbydemand, gbc_btnPullbydemand);
-		
 		SetTable = new JButton("Set");
 		GridBagConstraints gbc_SetTable = new GridBagConstraints();
 		gbc_SetTable.fill = GridBagConstraints.HORIZONTAL;
@@ -572,7 +541,7 @@ private void redraw()
 	panel_1.setLayout(null);
 	
 //>>
-	textline=commend+":"+tables+":"+textline;
+	textline=commend+":"+tables+":";
 	switch(tables){
 		case ("medical_worker"):{ newText = new medical_worker_Server(); break;	}
 		case ("labs"):			{	newText = new labs_Server_Gui();	break;	}
@@ -582,7 +551,7 @@ private void redraw()
 		case ("clinic"):		{newText = new clinic_Gui();	break;}
 		case ("expertise"):		{newText = new expertise_Gui();	break;}
 		case ("experts"):		{newText = new experts_server_Gui();	break;}
-		case ("expertsinsurance_by_expertise"): {newText = new expertsinsurance_by_expertise_serverGui();	break;}
+		case ("insurance_by_expertise"): {newText = new expertsinsurance_by_expertise_serverGui();	break;}
 		case ("insurances"): {newText = new insurances_server_Gui();	break;}
 		case ("lab_test_file"): {newText = new lab_test_file_server_Gui();	break;}
 		case ("lab_test"): {newText = new lab_tests_server_Gui();	break;}
@@ -780,10 +749,10 @@ private void redraw()
 	gbc_btnExpertise.gridy = 7;
 	internalFrame_1.getContentPane().add(btnExpertise, gbc_btnExpertise);
 	
-	btnExpertsinsurancebyexpertise = new JButton("expertsinsurance_by_expertise");
+	btnExpertsinsurancebyexpertise = new JButton("insurance_by_expertise");
 	btnExpertsinsurancebyexpertise.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent arg0) {
-			tables="expertsinsurance_by_expertise";
+			tables="insurance_by_expertise";
 		}
 	});
 	
@@ -995,32 +964,7 @@ private void redraw()
 	gbc_btnDelete.insets = new Insets(0, 0, 5, 0);
 	gbc_btnDelete.gridx = 0;
 	gbc_btnDelete.gridy = 4;
-	internalFrame.getContentPane().add(btnDelete, gbc_btnDelete);
-	
-	btnCheckme = new JButton("checkme");
-	btnCheckme.addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent e) {
-			commend="checkme";
-		}
-	});
-	GridBagConstraints gbc_btnCheckme = new GridBagConstraints();
-	gbc_btnCheckme.fill = GridBagConstraints.HORIZONTAL;
-	gbc_btnCheckme.insets = new Insets(0, 0, 5, 0);
-	gbc_btnCheckme.gridx = 0;
-	gbc_btnCheckme.gridy = 5;
-	internalFrame.getContentPane().add(btnCheckme, gbc_btnCheckme);
-	
-	btnPullbydemand = new JButton("pullByDemand");
-	btnPullbydemand.addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent e) {
-			commend="pullByDemand";
-		}
-	});
-	GridBagConstraints gbc_btnPullbydemand = new GridBagConstraints();
-	gbc_btnPullbydemand.insets = new Insets(0, 0, 5, 0);
-	gbc_btnPullbydemand.gridx = 0;
-	gbc_btnPullbydemand.gridy = 6;
-	internalFrame.getContentPane().add(btnPullbydemand, gbc_btnPullbydemand);
+	internalFrame.getContentPane().add(btnDelete, gbc_btnDelete);	
 	
 	SetTable = new JButton("Set");
 	GridBagConstraints gbc_SetTable = new GridBagConstraints();

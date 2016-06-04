@@ -36,7 +36,7 @@ public class references_files_server_Gui extends JPanel {
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				quaryReferences_files="references_file_num,"+textField.getText().toString();
-				quaryReferences_files=quaryReferences_files+",address,"+textField_1.getText().toString();
+				quaryReferences_files=quaryReferences_files+",referral_num,"+textField_1.getText().toString();
 		
 				ServerGui.textline=ServerGui.textline+quaryReferences_files.toString();
 				System.out.println(ServerGui.textline);

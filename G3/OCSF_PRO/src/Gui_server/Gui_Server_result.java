@@ -68,10 +68,13 @@ public class Gui_Server_result extends JFrame {
 				// Create some items to add to the list
 				String[] stockArr = new String[list.size()];
 				stockArr = list.toArray(stockArr);
-
+				if(stockArr.length==0)
+					dispose();
+				
 				// Create a new listbox control
 				listbox = new JList(stockArr);
 				topPanel.add( listbox, BorderLayout.NORTH );
+
 		}
 		else
 			JOptionPane.showMessageDialog(null,"Commened was carried out"+ ServerGui.textline, "Result",JOptionPane.PLAIN_MESSAGE);

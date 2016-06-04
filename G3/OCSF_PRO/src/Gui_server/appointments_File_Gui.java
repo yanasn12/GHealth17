@@ -37,8 +37,9 @@ public class appointments_File_Gui extends JPanel {
 		JButton btnOk = new JButton("OK");
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				quaryAppointment="appointment_file_num,"+textField.getText().toString();
-				quaryAppointment=quaryAppointment+",appointment_num,"+textField_1.getText().toString();
+
+					quaryAppointment="appointment_file_num,"+textField.getText().toString();
+					quaryAppointment=quaryAppointment+",appointment_num,"+textField_1.getText().toString();
 
 				ServerGui.textline=ServerGui.textline+quaryAppointment.toString();
 				System.out.println(ServerGui.textline);

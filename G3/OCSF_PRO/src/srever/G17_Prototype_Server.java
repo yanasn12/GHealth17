@@ -3,8 +3,6 @@ package srever;
 // "Object Oriented Software Engineering" and is issued under the open-source
 // license found at www.lloseng.com 
 import java.io.*;
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.util.ArrayList;
 
 import jdbc.mysqlConnection;

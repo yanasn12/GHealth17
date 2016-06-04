@@ -83,13 +83,14 @@ public class appointments_Gui extends JPanel {
 		JButton btnOk = new JButton("OK");
 		btnOk.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				quaryAppointment="appointment_num,"+textField.getText().toString();
-				quaryAppointment=quaryAppointment+",clinic_num,"+textField_1.getText().toString();
-				quaryAppointment=quaryAppointment+",worker_num,"+textField_2.getText().toString();
-				quaryAppointment=quaryAppointment+",status,"+textField_3.getText().toString();
-				quaryAppointment=quaryAppointment+",app_date,"+textField_4.getText().toString();
-				quaryAppointment=quaryAppointment+",call_date,"+textField_5.getText().toString();
-				quaryAppointment=quaryAppointment+",results,"+textField_6.getText().toString();
+				
+					quaryAppointment="appointment_num,"+textField.getText().toString();
+					quaryAppointment=quaryAppointment+",clinic_num,"+textField_1.getText().toString();	
+					quaryAppointment=quaryAppointment+",worker_num,"+textField_2.getText().toString();
+					quaryAppointment=quaryAppointment+",status,"+textField_3.getText().toString();
+					quaryAppointment=quaryAppointment+",app_date,"+textField_4.getText().toString();	
+					quaryAppointment=quaryAppointment+",call_date,"+textField_5.getText().toString();
+					quaryAppointment=quaryAppointment+",results,"+textField_6.getText().toString();
 				
 				ServerGui.textline=ServerGui.textline+quaryAppointment.toString();
 				System.out.println(ServerGui.textline);

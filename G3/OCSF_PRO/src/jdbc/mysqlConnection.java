@@ -55,20 +55,43 @@ public class mysqlConnection {
 		  				toByFilld=toByFilld+"?";
 		  			}
 		  			else
-		  				toFilled.add(inputData[i]);
-		  			if((i+2)<inputData.length)
+			  			{
+			  				if(inputData[i].toString().equals(""))
+			  					toFilled.add("-1");
+			  				else
+			  					toFilled.add(inputData[i]);
+			  			}
+		  			if(inputData.length%2!=0)
 		  			{
-		  				if(i%2==0)
-		  					fields=fields+",";
-		  				else
-		  					toByFilld=toByFilld+",";
-		  				
+			  			if((i+2)<=inputData.length)
+			  			{
+			  				if(i%2==0)
+			  					fields=fields+",";
+			  				else
+			  					toByFilld=toByFilld+",";
+			  				
+			  			}
 		  			}
+			  		else
+		  			{
+			  			if((i+2)<inputData.length)
+			  			{
+			  				if(i%2==0)
+			  					fields=fields+",";
+			  				else
+			  					toByFilld=toByFilld+",";
+			  				
+			  			}
+		  			}			  				
 		  			if((i+1)>=inputData.length)
 		  			{
 		  				fields=fields+")";
 		  				toByFilld=toByFilld+")";
 		  			}
+		  		}
+		  		if(inputData.length%2==1)
+		  		{
+		  			toFilled.add("-1");
 		  		}
 		  		if(checkme(where,inputData)==false)
 		  			returnData.add("Error");
@@ -312,7 +335,11 @@ private static boolean push (String DB,String values,String qustion,ArrayList<St
 	} catch (SQLException e) 
 	{
 			System.out.println("unable to push -PUSH");
-			System.out.println("DB "+DB+" values "+values+" qustion"+ qustion+" data1: "+data.get(0)+" data2: "+data.get(1));
+			System.out.println("DB "+DB+" values "+values+" qustion"+ qustion);
+			for(int i=0; i<data.size();i++)
+				System.out.print(i+"="+data.get(i)+" ");
+			System.out.println();
+			System.out.println(insertTableSQL);
 			return false;
 	}	 		
 }

@@ -1,8 +1,7 @@
 package Gui_server;
 
 import javax.swing.JPanel;
-import java.awt.BorderLayout;
-import java.awt.FlowLayout;
+
 import net.miginfocom.swing.MigLayout;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
