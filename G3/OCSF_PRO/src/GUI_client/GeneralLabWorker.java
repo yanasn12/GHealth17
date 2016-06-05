@@ -35,7 +35,7 @@ public class GeneralLabWorker extends JFrame {
 	private JDesktopPane desktopReports;
 	private JButton btnInsetLabReferral;
 	private InsertReferral1 inRef;
-	private WeeklyReport weekRep;
+//	private WeeklyReport weekRep;
 	private JTextField textField;
 	private JLabel lblPatientId;
 	private JButton btnApply;

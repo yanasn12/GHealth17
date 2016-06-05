@@ -8,12 +8,12 @@ import java.awt.Color;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
 
-public class Dispather_DoctoerAndTime extends JPanel {
+public class Dispather_DoctorAndTime extends JPanel {
 
 	/**
 	 * Create the panel.
 	 */
-	public Dispather_DoctoerAndTime() {
+	public Dispather_DoctorAndTime() {
 		setLayout(new MigLayout("", "[][][][][grow]", "[][][][][][][]"));
 		
 		JLabel lblReffrals = new JLabel("Reffrals:");

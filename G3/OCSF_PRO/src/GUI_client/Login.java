@@ -42,8 +42,11 @@ public class Login extends JFrame {
 	private GeneralLabWorker labWorker = null;
 	private GeneralManegementReport netManager = null;
 	private Dispather_Gui_main dispather = null;
+	private GeneralDoctor doctorExpert =null;
+	private ClinicManegementRrports ClincManegement = null;
 	public JPanel FirstPanel = null;
 	public static int typeOfWorker;
+	public static String userInSystem;
 	
 	/**
 	 * Launch the application.
@@ -166,36 +169,59 @@ public Login()
 				GuiLogin.LoginController(inputLogin, txtPassword.getText());
 				switch (typeOfWorker)
 				{
-				case 0: //labworker
+				case 1: //labworker
 					if(labWorker==null){
 						labWorker=new GeneralLabWorker();
 						labWorker.setSize(1000,1000);
 						labWorker.setVisible(true);
+						labWorker=null;
 					}
 					break;
 				
-				case 1: //Network manager
+				case 2: //Network manager
 					if(netManager==null){
 						netManager=new GeneralManegementReport();
 						netManager.setSize(1000,1000);
 						netManager.setVisible(true);
+						netManager=null;
 					}
 					break;
-				case 2: //Dispatcher	
+				case 3: //Dispatcher	
 					if(dispather==null)
 					{
 						dispather=new Dispather_Gui_main();
 						dispather.setSize(600,500);
 						dispather.setVisible(true);
+						dispather=null;
+						
+					}
+					break;
+				case 4: //Expert	
+					if(doctorExpert==null)
+					{
+						doctorExpert=new GeneralDoctor();
+						doctorExpert.setSize(600,500);
+						doctorExpert.setVisible(true);
+						doctorExpert=null;
 	
 					}
 					break;
-					
-				default: //
+				case 5: //Expert	
+					if(ClincManegement==null)
+					{
+						ClincManegement=new ClinicManegementRrports();
+						ClincManegement.setSize(600,500);
+						ClincManegement.setVisible(true);
+						ClincManegement=null;
+					}
+					break;
+				default:
 				}// end switch
+				textField.setText("");
+				txtPassword.setText(" ");
 			}
 		});
 	}
 
-	
+
 }

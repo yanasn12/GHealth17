@@ -91,7 +91,6 @@ public class Dispather_Client_info_Gui extends JPanel {
 		JLabel lblNewLabel = new JLabel("if the paintent exist in the system his information will appear");
 		panel.add(lblNewLabel, "cell 2 12 5 1");
 		
-
 	}
 
 }

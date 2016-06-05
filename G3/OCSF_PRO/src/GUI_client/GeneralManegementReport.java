@@ -7,15 +7,23 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+
 import java.awt.Color;
+
 import javax.swing.ImageIcon;
+
 import java.awt.Toolkit;
+
 import javax.swing.JButton;
+
 import java.awt.Font;
+
 import javax.swing.SwingConstants;
 import javax.swing.JDesktopPane;
+
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 
@@ -25,8 +33,10 @@ public class GeneralManegementReport extends JFrame {
 	private JDesktopPane desktopReports;
 	private JButton button_1;
 	private TypeOfMonthlyReports Rep;
-	private WeeklyReport weekRep;
+	public WeeklyReport WeekRep;
 	private JButton button;
+	private Login login;
+	private JButton btnLogout;
 	//////////////////private MonthlyReports Rep;
 	/**
 	 * Launch the application.
@@ -49,8 +59,9 @@ public class GeneralManegementReport extends JFrame {
 	 */
 	public GeneralManegementReport() {
 		initComponent(); //// יצרתי את INIT שבו יש את כל איתחול המרכיבים
-		createEvent1();/// הפעלת האירוע- הצגת המסך
-		//createEvent2();
+		createEvents1();/// הפעלת האירוע- הצגת המסך
+		createEvents2();
+		createEvents3();
 	}
 	///////// init component of desktop reports
 	private void initComponent() {
@@ -67,13 +78,15 @@ public class GeneralManegementReport extends JFrame {
 		label.setBounds(113, 25, 242, 68);
 		contentPane.add(label);
 		
-		button = new JButton("View weekly reports");
+		button = new JButton("View weekly reports");//////////////////////////////////////////////////////////////////////////
+		
+		
 		
 		button.setIcon(new ImageIcon(GeneralManegementReport.class.getResource("/javagui/resources/img16x16/reports.png")));
 		button.setHorizontalAlignment(SwingConstants.LEFT);
 		button.setForeground(Color.BLUE);
 		button.setFont(new Font("Tahoma", Font.BOLD, 11));
-		button.setBackground(Color.BLUE);
+		button.setBackground(Color.WHITE);
 		button.setBounds(10, 130, 192, 39);
 		contentPane.add(button);
 		
@@ -83,43 +96,73 @@ public class GeneralManegementReport extends JFrame {
 		button_1.setHorizontalAlignment(SwingConstants.LEFT);
 		button_1.setForeground(Color.BLUE);
 		button_1.setFont(new Font("Tahoma", Font.BOLD, 11));
-		button_1.setBackground(Color.BLUE);
+		button_1.setBackground(Color.WHITE);
 		button_1.setBounds(10, 183, 192, 39);
 		contentPane.add(button_1);
 		
 		desktopReports = new JDesktopPane();
 		desktopReports.setBackground(Color.WHITE);
-		desktopReports.setBounds(212, 133, 572, 539);
+		desktopReports.setBounds(212, 133, 621, 596);
 		contentPane.add(desktopReports);
 		desktopReports.setLayout(null);
+		
+		btnLogout = new JButton("logout");
+		
+		btnLogout.setBounds(10, 706, 89, 23);
+		contentPane.add(btnLogout);
+		
 	}
 	
+	
 	//display the type of monthly report
-	private void createEvent1() {
+	private void createEvents1() {
 		button_1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				if (Rep == null || Rep.isClosed())/////////
+				if (WeekRep != null )
+					WeekRep.dispose();/// close week report if open
+				if (Rep == null || Rep.isClosed())
 				Rep = new TypeOfMonthlyReports();  ////  לא לשכוח להצהיר על המשתנה כפרטי במחלקה 
 				desktopReports.add(Rep);/// הצגה על המסך הקטן
 				Rep.show(); // איפשור תצוגה
-				
+			
 			}
 		});
 	}
 
-	/// display weekly report
-	/*private void createEvent2() {
-	button.addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent e) {
-			
-			weekRep = new WeeklyReport ();
-			desktopReports.add(weekRep);
-			weekRep.e
-			setContentPane(weekRep);/// הצגה על המסך הקטן	
-			
-			//////////////////////////////////////////////////////////////////////////////
+	//for weekly report
+	private void createEvents2() {
+		button.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if (Rep != null)
+					Rep.dispose();/// close month report if open
+				if (WeekRep == null || WeekRep.isClosed())
+					WeekRep = new WeeklyReport();  ////  לא לשכוח להצהיר על המשתנה כפרטי במחלקה 
+					desktopReports.add(WeekRep);/// הצגה על המסך הקטן
+					WeekRep.show(); // איפשור תצוגה
+					
+					//close whene pressed back
+					WeekRep.button.addActionListener(new ActionListener() {
+						public void actionPerformed(ActionEvent e) {
+							WeekRep.dispose();
+							 //
+						}
+					});
+					
+			}
+		});
+		
+	}
+	
+	private void createEvents3() {
+		btnLogout.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			login = new Login();
+			login.typeOfWorker=1;
+			login.setVisible(true);
 		}
 	});
+	}
 }
-}*/
-}
+		
+			
+		

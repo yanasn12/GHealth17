@@ -42,11 +42,12 @@ public class RecordAppointment extends JInternalFrame {
 	 * Create the frame.
 	 */
 	public RecordAppointment() {
-		setBounds(100, 100, 504, 395);
+		getContentPane().setBackground(Color.WHITE);
+		setBounds(0, 0, 505, 477);
 		getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(0, 0, 478, 352);
+		panel.setBounds(0, 0, 489, 447);
 		getContentPane().add(panel);
 		
 		JPanel panel_1 = new JPanel();
@@ -82,53 +83,57 @@ public class RecordAppointment extends JInternalFrame {
 				.addGroup(gl_panel_1.createSequentialGroup()
 					.addContainerGap()
 					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblAppointmenttime)
+						.addComponent(lblSummery)
+						.addComponent(lblLocation)
+						.addComponent(lblAppointmentid))
+					.addGap(22)
+					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
 						.addGroup(gl_panel_1.createSequentialGroup()
-							.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
-								.addComponent(lblAppointmentid)
-								.addComponent(lblLocation)
-								.addComponent(lblArrived)
-								.addComponent(lblAppointmenttime))
-							.addPreferredGap(ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
-							.addGroup(gl_panel_1.createParallelGroup(Alignment.TRAILING, false)
-								.addComponent(comboBox, 0, 115, Short.MAX_VALUE)
-								.addComponent(textField_3)
+							.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING, false)
+								.addComponent(textField)
 								.addComponent(textField_1)
-								.addComponent(textField))
-							.addGap(18)
-							.addComponent(panel_2, GroupLayout.PREFERRED_SIZE, 148, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_panel_1.createSequentialGroup()
-							.addComponent(lblSummery)
-							.addGap(44)
-							.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 329, Short.MAX_VALUE)))
-					.addContainerGap())
+								.addComponent(comboBox, 0, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(textField_3, GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE))
+							.addPreferredGap(ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
+							.addComponent(panel_2, GroupLayout.PREFERRED_SIZE, 112, GroupLayout.PREFERRED_SIZE))
+						.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 344, GroupLayout.PREFERRED_SIZE))
+					.addGap(21))
+				.addGroup(gl_panel_1.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(lblArrived, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+					.addGap(436))
 		);
 		gl_panel_1.setVerticalGroup(
 			gl_panel_1.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_panel_1.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING, false)
+					.addGroup(gl_panel_1.createParallelGroup(Alignment.TRAILING)
+						.addGroup(Alignment.LEADING, gl_panel_1.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(panel_2, GroupLayout.DEFAULT_SIZE, 268, Short.MAX_VALUE)
+							.addPreferredGap(ComponentPlacement.RELATED))
 						.addGroup(gl_panel_1.createSequentialGroup()
+							.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 							.addGroup(gl_panel_1.createParallelGroup(Alignment.BASELINE)
 								.addComponent(lblAppointmentid)
 								.addComponent(textField_3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-							.addGap(18)
+							.addGap(47)
 							.addGroup(gl_panel_1.createParallelGroup(Alignment.BASELINE)
-								.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblLocation))
-							.addGap(18)
+								.addComponent(lblLocation)
+								.addComponent(comboBox, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE))
+							.addGap(44)
 							.addGroup(gl_panel_1.createParallelGroup(Alignment.BASELINE)
-								.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblAppointmenttime))
-							.addGap(18)
+								.addComponent(lblAppointmenttime)
+								.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addGap(39)
 							.addGroup(gl_panel_1.createParallelGroup(Alignment.BASELINE)
-								.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-								.addComponent(lblArrived)))
-						.addComponent(panel_2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-					.addGap(30)
+								.addComponent(lblArrived)
+								.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+							.addGap(41)))
 					.addGroup(gl_panel_1.createParallelGroup(Alignment.LEADING)
-						.addComponent(lblSummery)
-						.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE))
-					.addGap(157))
+						.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblSummery))
+					.addGap(5))
 		);
 		panel_1.setLayout(gl_panel_1);
 		
@@ -162,21 +167,19 @@ public class RecordAppointment extends JInternalFrame {
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_panel.createSequentialGroup()
+				.addComponent(panel_1, GroupLayout.DEFAULT_SIZE, 489, Short.MAX_VALUE)
+				.addGroup(Alignment.TRAILING, gl_panel.createSequentialGroup()
 					.addContainerGap()
-					.addGroup(gl_panel.createParallelGroup(Alignment.LEADING)
-						.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 449, GroupLayout.PREFERRED_SIZE)
-						.addComponent(panel_3, GroupLayout.PREFERRED_SIZE, 452, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(16, Short.MAX_VALUE))
+					.addComponent(panel_3, GroupLayout.DEFAULT_SIZE, 469, Short.MAX_VALUE)
+					.addGap(10))
 		);
 		gl_panel.setVerticalGroup(
 			gl_panel.createParallelGroup(Alignment.TRAILING)
-				.addGroup(Alignment.LEADING, gl_panel.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 260, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(panel_3, GroupLayout.PREFERRED_SIZE, 54, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(143, Short.MAX_VALUE))
+				.addGroup(gl_panel.createSequentialGroup()
+					.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 355, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(panel_3, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap())
 		);
 		panel.setLayout(gl_panel);
 

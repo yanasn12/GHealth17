@@ -17,11 +17,10 @@ public class GuiLogin {
 	public  static void LoginController(String inputLogin, String password)
 	{
 		ArrayList <String> data = new ArrayList<String>();
+		data=null;
 		String [] dataDB;
-		System.out.println(inputLogin);
 		data=jdbc.mysqlConnection.ActionMode(inputLogin.toString());
-		System.out.println(data.get(0));
-		if(data.isEmpty())
+		if(data==null)
 		{
 				JOptionPane.showMessageDialog(null,"you have enter a wrong Username.", "Login Error",JOptionPane.ERROR_MESSAGE);
 				 setWrongConter();
@@ -35,14 +34,16 @@ public class GuiLogin {
 					JOptionPane.showMessageDialog(null,"The user is already in Login mode,\n please connect to system administrator ", "Login Error",JOptionPane.ERROR_MESSAGE);
 				else
 					if(dataDB[4].equals("2"))
-				JOptionPane.showMessageDialog(null,"The user is locked out of the system due to suspicion of hacking attempt,\n please connect to system administrator ", "Login Error",JOptionPane.ERROR_MESSAGE);
+						JOptionPane.showMessageDialog(null,"The user is locked out of the system due to suspicion of hacking attempt,\n please connect to system administrator ", "Login Error",JOptionPane.ERROR_MESSAGE);
+					else
+							JOptionPane.showInternalMessageDialog(null, "Error_Login", "Login Error",JOptionPane.ERROR_MESSAGE);
 			}
 			else
 			{
-				
+
+
 				if(!dataDB[2].equals(password))
 					{
-						System.out.println(wrongConter++);
 						if(wrongConter<3)
 							JOptionPane.showMessageDialog(null,"you have enter a wrong password.", "Login Error",JOptionPane.ERROR_MESSAGE);
 						else
@@ -57,10 +58,10 @@ public class GuiLogin {
 				else if(dataDB[2].equals(password))
 					{
 					inputLogin="update:medical_worker:"+"worker_num,"+ dataDB[1]+",is_connected,1";
-					System.out.println(inputLogin);
+					Login.userInSystem=dataDB[1].toString();
 					jdbc.mysqlConnection.ActionMode(inputLogin.toString());
-					System.out.println(dataDB[6]);
-					Login.typeOfWorker=Integer.parseInt(dataDB[6]);
+					Login.typeOfWorker=Integer.parseInt(dataDB[5].toString());
+					System.out.println(Login.typeOfWorker);
 					}
 			}
 		}

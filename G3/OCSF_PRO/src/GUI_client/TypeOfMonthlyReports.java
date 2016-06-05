@@ -1,5 +1,4 @@
 package GUI_client;
-import java.awt.EventQueue;
 
 import javax.swing.JInternalFrame;
 import javax.swing.JPanel;
@@ -8,14 +7,12 @@ import javax.swing.JTextArea;
 import java.awt.SystemColor;
 import java.awt.Font;
 import java.awt.Color;
-
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 import javax.swing.ImageIcon;
-
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
+import javax.swing.JLabel;
 
 public class TypeOfMonthlyReports extends JInternalFrame {
 
@@ -25,11 +22,13 @@ public class TypeOfMonthlyReports extends JInternalFrame {
 		private JButton btnNLastMonth;
 		private PeriodReport PerRep;
 		private JButton btnPeriodReport;
+		
 
 	/**
 	 * Create the frame.
 	 */
 		public JPanel FirstPanel = null;
+	private JLabel lblSelectTheDesired;
 		
 		
 	public TypeOfMonthlyReports() {
@@ -50,7 +49,7 @@ public class TypeOfMonthlyReports extends JInternalFrame {
 			textArea.setForeground(new Color(0, 128, 0));
 			textArea.setFont(new Font("Tahoma", Font.BOLD, 14));
 			textArea.setBackground(SystemColor.menu);
-			FirstPanel.add(textArea);
+			//FirstPanel.add(textArea);
 			
 			button = new JButton("Current Monthly Report");
 			button.setBounds(52, 60, 192, 39);
@@ -74,7 +73,7 @@ public class TypeOfMonthlyReports extends JInternalFrame {
 			createEvents2();
 			FirstPanel.add(btnPeriodReport);			
 			
-			btnNLastMonth = new JButton("N Last Month");
+			btnNLastMonth = new JButton("N Last Month Report");
 			btnNLastMonth.setBounds(52, 162, 192, 39);
 			
 			btnNLastMonth.setIcon(new ImageIcon(TypeOfMonthlyReports.class.getResource("/javagui/resources/img16x16/nota.png")));
@@ -85,12 +84,17 @@ public class TypeOfMonthlyReports extends JInternalFrame {
 			createEvents3();
 			FirstPanel.add(btnNLastMonth);
 			
+			lblSelectTheDesired = new JLabel("Select the desired report :");
+			lblSelectTheDesired.setFont(new Font("Tahoma", Font.BOLD, 15));
+			lblSelectTheDesired.setBounds(52, 11, 244, 29);
+			FirstPanel.add(lblSelectTheDesired);
+			
 		}
 		return FirstPanel;
 	}
 	
 	private void initComponent() {
-		setBounds(0, 0, 505, 477);
+		setBounds(0, 0, 488, 500);
 		this.setContentPane(getFirstPanel());
 		this.CurrRep = new CurrReport();
 			CurrRep.btnBfd.addActionListener(new ActionListener() {
@@ -141,6 +145,8 @@ public class TypeOfMonthlyReports extends JInternalFrame {
 		});
 		
 	}
+	
+
 	
 	
 	
