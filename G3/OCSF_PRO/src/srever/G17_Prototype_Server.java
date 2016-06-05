@@ -58,6 +58,7 @@ public class G17_Prototype_Server extends AbstractServer
 	  String [] commendMessage;
 	  Object msgToClinet="";
 	  try{
+		  //-->client to server
 		ArrayList<String> toCheck= new ArrayList<String>();	
 		toCheck=mysqlConnection.ActionMode(str_arr);
 		commendMessage=str_arr.split(":");

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 import Entitys.Medical_worker;
+import GUI_client.Login;
 public class GuiLogin {
 	private static int wrongConter;
 	public Medical_worker loginUser= new Medical_worker();
@@ -58,7 +59,8 @@ public class GuiLogin {
 					inputLogin="update:medical_worker:"+"worker_num,"+ dataDB[1]+",is_connected,1";
 					System.out.println(inputLogin);
 					jdbc.mysqlConnection.ActionMode(inputLogin.toString());
-					//->we know all we need, add the conect to other screen
+					System.out.println(dataDB[6]);
+					Login.typeOfWorker=Integer.parseInt(dataDB[6]);
 					}
 			}
 		}
