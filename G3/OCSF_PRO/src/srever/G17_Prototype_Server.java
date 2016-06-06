@@ -51,8 +51,7 @@ public class G17_Prototype_Server extends AbstractServer
  * @throws IOException 
    */
   public void handleMessageFromClient
-    (Object msg, ConnectionToClient client) 
-    
+    (Object msg, ConnectionToClient client)  
   {
 	  String str_arr =  ((String) msg);
 	  String [] commendMessage;

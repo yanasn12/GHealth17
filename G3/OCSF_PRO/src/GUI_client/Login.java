@@ -165,23 +165,21 @@ public Login()
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				inputLogin="pullbykey:medical_worker:worker_num,"+textField.getText()+",password,"+txtPassword.getText();;
-				
 				GuiLogin.LoginController(inputLogin, txtPassword.getText());
 				switch (typeOfWorker)
 				{
 				case 1: //labworker
 					if(labWorker==null){
 						labWorker=new GeneralLabWorker();
-						labWorker.setSize(1000,1000);
+						labWorker.setSize(600,500);
 						labWorker.setVisible(true);
 						labWorker=null;
 					}
-					break;
-				
+					break;				
 				case 2: //Network manager
 					if(netManager==null){
 						netManager=new GeneralManegementReport();
-						netManager.setSize(1000,1000);
+						netManager.setSize(600,500);
 						netManager.setVisible(true);
 						netManager=null;
 					}
@@ -206,7 +204,7 @@ public Login()
 	
 					}
 					break;
-				case 5: //Expert	
+				case 5: //Clinc Manager	
 					if(ClincManegement==null)
 					{
 						ClincManegement=new ClinicManegementRrports();
