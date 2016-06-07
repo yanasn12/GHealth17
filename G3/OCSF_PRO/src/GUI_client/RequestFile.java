@@ -121,6 +121,9 @@ import javax.swing.ImageIcon;
 
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.border.EmptyBorder;
+import javax.swing.border.TitledBorder;
+import javax.swing.UIManager;
 
 
 public class RequestFile extends JInternalFrame {
@@ -141,6 +144,10 @@ public class RequestFile extends JInternalFrame {
 		
 	public RequestFile() {
 		super();
+		setRootPaneCheckingEnabled(false);
+		setBackground(Color.WHITE);
+		setBorder(null);
+		setEnabled(false);
 		initComponent();
 	}
 

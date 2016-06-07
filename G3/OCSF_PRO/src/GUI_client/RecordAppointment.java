@@ -71,7 +71,7 @@ public class RecordAppointment extends JInternalFrame {
 		
 		textField_3 = new JTextField();
 		textField_3.setColumns(10);
-		
+
 		JComboBox comboBox = new JComboBox();
 		
 		JPanel panel_2 = new JPanel();

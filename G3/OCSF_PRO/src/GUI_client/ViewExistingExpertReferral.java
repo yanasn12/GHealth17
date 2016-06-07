@@ -15,6 +15,7 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
+import javax.swing.JComboBox;
 
 public class ViewExistingExpertReferral extends JPanel {
 	public JButton btnBfd = null;
@@ -53,15 +54,15 @@ public class ViewExistingExpertReferral extends JPanel {
 		btnBfd.setIcon(new ImageIcon(ViewExistingExpertReferral.class.getResource("/javagui/resources/Back.png")));
 		
 		JLabel label = new JLabel("Referral number:");
-		label.setBounds(10, 113, 160, 14);
+		label.setBounds(10, 135, 160, 14);
 		panel.add(label);
 		
 		JLabel label_1 = new JLabel("Referres to expertiese:");
-		label_1.setBounds(10, 155, 160, 14);
+		label_1.setBounds(10, 177, 160, 14);
 		panel.add(label_1);
 		
 		JLabel label_2 = new JLabel("Referred to expert:");
-		label_2.setBounds(10, 199, 160, 14);
+		label_2.setBounds(10, 217, 160, 14);
 		panel.add(label_2);
 		
 		JLabel label_3 = new JLabel("reason:");
@@ -70,17 +71,17 @@ public class ViewExistingExpertReferral extends JPanel {
 		
 		textField = new JTextField();
 		textField.setColumns(10);
-		textField.setBounds(146, 110, 168, 20);
+		textField.setBounds(146, 132, 168, 20);
 		panel.add(textField);
 		
 		textField_1 = new JTextField();
 		textField_1.setColumns(10);
-		textField_1.setBounds(146, 152, 168, 20);
+		textField_1.setBounds(146, 174, 168, 20);
 		panel.add(textField_1);
 		
 		textField_2 = new JTextField();
 		textField_2.setColumns(10);
-		textField_2.setBounds(146, 196, 168, 20);
+		textField_2.setBounds(146, 214, 168, 20);
 		panel.add(textField_2);
 		
 		JTextArea textArea = new JTextArea();
@@ -88,13 +89,21 @@ public class ViewExistingExpertReferral extends JPanel {
 		panel.add(textArea);
 		
 		JLabel lblDate = new JLabel("date:");
-		lblDate.setBounds(10, 69, 160, 14);
+		lblDate.setBounds(10, 104, 160, 14);
 		panel.add(lblDate);
 		
 		textField_3 = new JTextField();
 		textField_3.setColumns(10);
-		textField_3.setBounds(146, 66, 168, 20);
+		textField_3.setBounds(146, 101, 168, 20);
 		panel.add(textField_3);
+		
+		JLabel lblChooseReferral = new JLabel("choose referral:");
+		lblChooseReferral.setBounds(10, 69, 108, 14);
+		panel.add(lblChooseReferral);
+		
+		JComboBox comboBox = new JComboBox();
+		comboBox.setBounds(146, 66, 168, 20);
+		panel.add(comboBox);
 
 	}
 }

@@ -35,7 +35,7 @@ public class FullFile extends JPanel {
 		
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(UIManager.getBorder("TitledBorder.border"), "Full File", TitledBorder.LEADING, TitledBorder.TOP, null, new Color(0, 0, 0)));
-		panel.setBounds(0, 0, 505, 477);
+		panel.setBounds(0, 0, 510, 477);
 		add(panel);
 		panel.setLayout(null);
 		
@@ -58,6 +58,11 @@ public class FullFile extends JPanel {
 		panel.add(lblNumberOfPatient_1);
 		
 		btnBfd = new JButton("Back");
+		btnBfd.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+			}
+		});
 		btnBfd.setBounds(206, 375, 108, 41);
 		/*btnBfd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

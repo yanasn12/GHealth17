@@ -9,10 +9,12 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import Controllers.Dispatcher;
 import Controllers.Logout;
 import jdbc.mysqlConnection;
 import net.miginfocom.swing.MigLayout;
@@ -31,7 +33,7 @@ public class Dispather_Gui_main extends JFrame {
 	public static int windows=0;
 	private Login loginmain=null;
 	private boolean firstFlag=true;
-	private JTabbedPane tabbedPane;
+	public static JTabbedPane tabbedPane;
 	private Dispather_Client_info_Gui window1 = new Dispather_Client_info_Gui();
 	private Dispather_Doctor window2 = new Dispather_Doctor();
 	private Dispather_date_and_time window3 = new  Dispather_date_and_time();
@@ -60,7 +62,7 @@ public class Dispather_Gui_main extends JFrame {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setBackground(Color.WHITE);
 		this.setTitle("Dispather");
-		setBounds(100, 100, 786, 599);
+		setBounds(20, 20, 886, 699);
 		this.setContentPane(into());
 	}
 		
@@ -82,7 +84,11 @@ public class Dispather_Gui_main extends JFrame {
 		Icon FindADoctor = new ImageIcon("C:\\Users\\guy\\workspace\\OCSF_PRO_GUY\\src\\javagui\\resources\\FindADoctor.png");
 		
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		contentPane.add(tabbedPane, "cell 1 2 4 16,grow");
+		contentPane.add(tabbedPane, "cell 1 2 6 16,grow");
+		window1.btnCommfer.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		tabbedPane.addTab("patient", null,window1,null);	
 		tabbedPane.addTab("Doctors", null,window2,null);
 		tabbedPane.addTab("Date and Time", null,window3,null);
@@ -145,9 +151,8 @@ private void createEvents()
 		});
 
 
-		Dispather_Client_info_Gui.btnCommfer.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				tabbedPane.setEnabledAt(1, true);
+Dispather_Client_info_Gui.btnCommfer.addActionListener(new ActionListener() {			
+		public void actionPerformed(ActionEvent arg0) {
 			}
 		});
 		
@@ -156,6 +161,8 @@ private void createEvents()
 				tabbedPane.setEnabledAt(2, true);
 			}
 		});
+
 	
 	}
 }
+

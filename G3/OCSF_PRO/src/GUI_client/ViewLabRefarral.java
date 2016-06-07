@@ -41,7 +41,7 @@ public class ViewLabRefarral extends JInternalFrame {
 		getContentPane().setLayout(null);
 		
 		JPanel panel = new JPanel();
-		panel.setBounds(10, 0, 478, 473);
+		panel.setBounds(0, 0, 505, 477);
 		getContentPane().add(panel);
 		
 		JLabel label = new JLabel("");
